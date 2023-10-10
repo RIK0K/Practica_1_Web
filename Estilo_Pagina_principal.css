@@ -1,0 +1,33 @@
+.banner {
+    display: grid;
+}
+
+.itemBanner {
+    color: rgb(0, 0, 0);
+    padding: 1em;
+    text-align: center;
+}
+
+.a {
+    background: rgb(230, 222, 222);
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.b {
+    background: rgb(50, 200, 22);
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.c {
+    background: rgb(40, 222, 222);
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+
+.imagen-banner {
+    width: 20px;
+    height: auto;
+}
