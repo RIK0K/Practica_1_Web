@@ -15,7 +15,7 @@
 }
 
 .a {
-    background: rgb(199, 39, 39)
+    background: rgb(247, 164, 113);
     grid-column-start: 0;
     grid-column-end: 1;
 }
