@@ -47,10 +47,3 @@
     height: 100%;
     color: #af2c2c;
 }
-
-
-@media  and (max-width 50px) {
-    .title_style{
-        font-size: 15px;
-    }
-}
