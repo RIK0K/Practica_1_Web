@@ -15,25 +15,42 @@
 }
 
 .a {
-    background: rgb(247, 164, 113);
+    background: rgb(231, 220, 213);
     grid-column-start: 0;
     grid-column-end: 1;
 }
 
 .b {
-    background: rgb(150, 87, 214);
+    background: rgb(231, 220, 213);
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 2;
 }
 
 .c {
-    background: rgb(75, 245, 200);
-    grid-column-start: 4;
-    grid-column-end: 4;
+    background: rgb(231, 220, 213);
+    grid-column-start: 2;
+    grid-column-end: 3;
 
 }
 
-.imagen-banner {
-    width: 125px; /* Ancho de la imagen */
+.image-banner {
+    width: 80px; /* Ancho de la imagen */
     height: auto; /* La altura se ajustará automáticamente manteniendo la proporción */
+}
+
+.title_style {
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    font-family: cursive;
+    font-weight: bolder;
+    height: 100%;
+    color: #af2c2c;
+}
+
+
+@media  and (max-width 50px) {
+    .title_style{
+        font-size: 15px;
+    }
 }
