@@ -31,10 +31,18 @@
 
 .d {
     background: rgb(231, 220, 213);
-    color: rgb(184, 3, 3);
+    color: #af2c2c;
     text-align: center;
     font-weight: bold;
     font-family: fantasy;
+}
+
+.footer-banner {
+    background-color:#681e1e;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    
 }
 
 .black-border {
@@ -59,8 +67,12 @@
     color: #af2c2c;
 }
 
-#space-big {
+#space-small {
     height: 20px;
+}
+
+#space-big {
+    height: 150px;
 }
 
 .product-photo {
@@ -68,8 +80,8 @@
     padding-left: 10px;
     width: 200px;
     height: 250px;
-    border-radius: 5px;
 }
+
 
 
 /* ############################### */
