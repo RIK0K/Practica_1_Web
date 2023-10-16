@@ -58,10 +58,10 @@
 }
 
 .title_style {
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     text-decoration: none;
-    font-family: cursive;
+    font: TimesNewRomans;
     font-weight: bolder;
     height: 100%;
     color: #af2c2c;
