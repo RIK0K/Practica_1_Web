@@ -112,8 +112,46 @@
     font-size: 12px;
     color: gray;
 }
+
 #prod_description{
     margin-top: 10%;
     font-family: 'Times New Roman';
     font-size: 20px;
+}
+
+#review{
+    margin-top: 3%;
+    font-family: 'Times New Roman';
+}
+
+#review_opinion{
+    margin: 1px;
+}
+
+#talla{
+    width: auto;
+    margin-top: 5%;
+}
+
+#shop_button{
+    margin-top: 5%;
+}
+
+#review_button{
+    margin-top: 5%;
+}
+
+#opinion_usuario{
+    margin-top: 5%
+}
+
+#usuario_x{
+    border-style: solid;
+    margin-top: 5%;
+    border-color: red;
+    border-radius: 5px;
+}
+
+.estrella{
+    color: red;
 }
