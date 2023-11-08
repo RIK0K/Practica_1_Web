@@ -155,3 +155,8 @@
 .estrella{
     color: red;
 }
+
+#precio{
+    font-size: large;
+    font-family: 'Times New Roman';
+}
