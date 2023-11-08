@@ -144,10 +144,15 @@
 
 
     <!-- BOTON PARA AÑADIR UN ELEMENTO -->
-    <p id="space-small"></p>
-    <div class="d-grid add-button">
-        <button class="btn btn-danger" type="button">Añadir un nuevo producto
-    </div>
+
+ 
+  <button id="addProductButton">Añadir Nuevo Producto</button>
+  <script>
+    document.getElementById("addProductButton").addEventListener("click", function() {
+      // Redireccionar a la página de formulario para agregar un nuevo producto
+      window.location.href = "nuevo_producto.html";
+    });
+  </script>
 
 
 

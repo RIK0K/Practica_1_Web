@@ -89,6 +89,21 @@
 
 
 
+
+#addProductButton {
+    background-color: #d93e3e; 
+    color: #FFFFFF; 
+    padding: 8px 135px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+  }
+  
+    
+
+
+
 /* ############################### */
 /* ############################### */
 /* Fin de estrilo pagina principal */
@@ -155,3 +170,85 @@
 .estrella{
     color: red;
 }
+
+/* ############################### */
+/* ############################### */
+/* Fin de estrilo pagina de producto */
+
+ /* Iicio de estrilo pagina de nuevo_producto */
+/* ################################### */ 
+
+/* Estilo del título "Nuevo Elemento" */
+h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+    background-color: #f4f6f8; /* Color de fondo */
+    color: #FFFFFF; /* Color del texto */
+    padding: 10px; /* Relleno (padding) */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 10px;
+  }
+  
+/* Estilo general del formulario */
+#elementForm {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario en la página */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f7f7f7; /* Color de fondo */
+  }
+  
+  /* Estilo de etiquetas (labels) */
+  label {
+    display: block; /* Cada etiqueta en una línea nueva */
+    margin-bottom: 5px; /* Espacio inferior entre etiquetas */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  /* Estilo de campos de entrada de texto (input) y textarea */
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espacio inferior entre campos */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilo de campo de archivo (input type="file") */
+  input[type="file"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espacio inferior entre campos */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilo de campo de radio (input type="radio") */
+  input[type="radio"] {
+    margin-right:5px; /* Espacio a la derecha de los radio buttons */
+  }
+  
+  /* Estilo del botón de envío (submit) y botón de cancelar */
+  button[type="submit"],
+  button[type="button"] {
+    margin-top: 10px; /* Espacio en la parte superior de los botones */
+    background-color: #b73333; /* Color de fondo */
+    color: #FFFFFF; /* Color del texto */
+    padding: 10px 20px; /* Relleno (padding) */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 15px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }
+  
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #7c2324; /* Cambia el color de fondo al pasar el ratón por encima */
+  }
+  
+
+ 
+  
+  

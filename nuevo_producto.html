@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fenix Products</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="Estilo_Fenix_Shop.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css? family=Roboto" rel="stylesheet" type="text/css">
+</head>
+
+
+
+
+<body>
+  <div class="banner">
+
+    <!-- Imagen logo con link a inicio -->
+    <div class="itemBanner a">
+      <a href="Pagina_Principal.html">
+        <img src="Logo_final.png" class="image-banner">
+      </a>
+    </div>
+
+    <!-- Nombre de la tineda -->
+    <div class="itemBanner b title_style">
+      <p>Fenix Shop</p>
+    </div>
+    
+    <!-- Boton desplegable con redes sociales -->
+    <!--
+    <div class="itemBanner c">
+      <p></p>
+      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"> Redes<span>
+          <ul class="dropdown-menu" role="menu">
+            <p>
+              <a href="https://www.instagram.com/" class="btn">
+                <i class="bi bi-instagram"> Instagram</i>
+              </a>
+            </p>
+            <p>
+              <a href="twitter.com" class="btn">
+                <i class="bi bi-twitter-x"> Twitter X</i>
+              </a>
+            </p>
+            <p>
+              <a href="https://www.tiktok.com/es/" class="btn">
+                <i class="bi bi-tiktok"> TikTok</i>
+              </a>
+            </p>
+    </div>
+  -->
+  </div>
+
+  <h1>Añadir Producto</h1>
+
+  <form id="elementForm" action="guardar_elemento.php" method="post">
+    <!-- Campo de Título -->
+    <label for="elementTitle">Título:</label>
+    <input type="text" id="elementTitle" name="elementTitle" required><br>
+
+    <!-- Campo de Descripción -->
+    <label for="elementDescription">Descripción:</label>
+    <textarea id="elementDescription" name="elementDescription" rows="4" required></textarea><br>
+
+    <!-- Campo de Imagen -->
+    <label for="elementImage">Imagen:</label>
+    <input type="file" id="elementImage" name="elementImage" accept="image/*"><br>
+
+
+    <!-- Campo Radio con 3 opciones -->
+    <label>Tipo prenda:</label>
+    <input type="radio" id="elementRadio1" name="elementRadio" value="Option 1">
+    <label for="elementRadio1">camiseta</label>
+
+    <input type="radio" id="elementRadio2" name="elementRadio" value="Option 2">
+    <label for="elementRadio2">sudadera</label>
+
+    <input type="radio" id="elementRadio3" name="elementRadio" value="Option 3">
+    <label for="elementRadio3">gorra</label><br>
+
+
+    <!-- Botones de Guardar y Cancelar -->
+    <button type="submit" name="guardar">Guardar</button>
+    <button type="button" id="cancelButton">Cancelar</button>
+  </form>
+
+  <script>
+    // Función para manejar el botón de Cancelar
+    document.getElementById("cancelButton").addEventListener("click", function() {
+      window.location.href = "pagina_anterior.html"; // Reemplaza "pagina_anterior.html" con la URL de la página anterior
+    });
+  </script>
+</body>
+</html>
