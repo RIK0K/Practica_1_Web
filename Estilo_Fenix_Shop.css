@@ -171,6 +171,7 @@
     color: red;
 }
 
+<<<<<<< HEAD
 /* ############################### */
 /* ############################### */
 /* Fin de estrilo pagina de producto */
@@ -252,3 +253,9 @@ h1 {
  
   
   
+=======
+#precio{
+    font-size: large;
+    font-family: 'Times New Roman';
+}
+>>>>>>> 18743704d555a7fd30e096d33c1fc63b2c9fc845
