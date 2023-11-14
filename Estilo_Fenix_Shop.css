@@ -4,6 +4,19 @@
     display: grid;
 }
 
+.organizacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap ;
+}
+
+.org-product{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
 .itemBanner {
     text-align: center;
     background-color: rgb(231, 220, 213);
@@ -61,7 +74,7 @@
     font-size: 35px;
     text-align: center;
     text-decoration: none;
-    font: TimesNewRomans;
+    font: Times;
     font-weight: bolder;
     height: 100%;
     color: #af2c2c;
