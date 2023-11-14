@@ -86,19 +86,6 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-
-
-
-
-#addProductButton {
-    background-color: #d93e3e; 
-    color: #FFFFFF; 
-    padding: 8px 135px; 
-    border: none; 
-    border-radius: 5px; 
-    font-size: 16px; 
-    cursor: pointer; 
-  }
   
     
 
@@ -171,7 +158,6 @@
     color: red;
 }
 
-<<<<<<< HEAD
 /* ############################### */
 /* ############################### */
 /* Fin de estrilo pagina de producto */
@@ -253,9 +239,7 @@ h1 {
  
   
   
-=======
 #precio{
     font-size: large;
     font-family: 'Times New Roman';
 }
->>>>>>> 18743704d555a7fd30e096d33c1fc63b2c9fc845
