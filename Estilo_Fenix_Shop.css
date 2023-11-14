@@ -230,50 +230,18 @@ h1 {
     border: 1px solid #ddd; /* Borde */
     border-radius: 5px; /* Bordes redondeados */
   }
-  
-  /* Estilo de campo de archivo (input type="file") */
-  input[type="file"] {
-    width: 100%; /* Ancho completo */
-    padding: 10px; /* Espaciado interno */
-    margin-bottom: 10px; /* Espacio inferior entre campos */
-    border: 1px solid #ddd; /* Borde */
-    border-radius: 5px; /* Bordes redondeados */
-  }
-  
-  /* Estilo de campo de radio (input type="radio") */
-  input[type="radio"] {
-    margin-right:5px; /* Espacio a la derecha de los radio buttons */
-  }
-  
-  /* Estilo del botón de envío (submit) y botón de cancelar */
-  button[type="submit"],
-  button[type="button"] {
-    margin-top: 10px; /* Espacio en la parte superior de los botones */
-    background-color: #b73333; /* Color de fondo */
-    color: #FFFFFF; /* Color del texto */
-    padding: 10px 20px; /* Relleno (padding) */
-    border: none; /* Sin borde */
-    border-radius: 10px; /* Bordes redondeados */
-    font-size: 15px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-  }
-  
-  button[type="submit"]:hover,
-  button[type="button"]:hover {
-    background-color: #7c2324; /* Cambia el color de fondo al pasar el ratón por encima */
-  }
-  
-
  
-  
-  
 #precio{
     font-size: large;
     font-family: 'Times New Roman';
 }
 
-
-
+.bot-can-guar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 25px;
+}
 
 
 
