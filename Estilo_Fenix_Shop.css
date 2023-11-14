@@ -4,12 +4,22 @@
     display: grid;
 }
 
+.organizacion{
+    display: flex;
+    flex-direction: column;
+}
+
+.org-product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .itemBanner {
     text-align: center;
     background-color: rgb(231, 220, 213);
     color: rgb(184, 3, 3);
     padding: 1px;
-
 }
 
 .a {
