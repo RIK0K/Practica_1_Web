@@ -1,0 +1,25 @@
+// TODO ESTO ES UN EJEMPLO AQUI HABRIA QUE ADAPTARLO A NUESTRA PAGINA
+[
+    {
+      "id": 1,
+      "nombre": "Camiseta Blanca",
+      "precio": 25,
+      "imagen": "ruta/de/la/imagen1.jpg",
+      "descripcion": "Descripción de la camiseta blanca."
+    },
+    {
+      "id": 2,
+      "nombre": "Sudadera Gris",
+      "precio": 40,
+      "imagen": "ruta/de/la/imagen2.jpg",
+      "descripcion": "Descripción de la sudadera gris."
+    },
+    {
+      "id": 3,
+      "nombre": "Gorra Negra",
+      "precio": 15,
+      "imagen": "ruta/de/la/imagen3.jpg",
+      "descripcion": "Descripción de la gorra negra."
+    }
+  ]
+  

@@ -1,31 +1,98 @@
 const express = require('express');
-const path = require('path');
+const fs = require('fs');
 const app = express();
-const PORT = 3000;
+const port = 3000;
 
-// Módulo simple para simular una base de datos en memoria
-const db = {
-  elementos: [
-    { id: 1, nombre: 'Elemento 1', precio: 10 },
-    { id: 2, nombre: 'Elemento 2', precio: 20 },
-    // Agrega más elementos según sea necesario
-  ],
-};
+// Middleware para parsear JSON en las solicitudes
+app.use(express.json());
 
-// Endpoint para obtener elementos
-app.get('/api/elementos', (req, res) => {
-  res.json(db.elementos);
+// Ruta para obtener todos los elementos
+app.get('/elementos', (req, res) => {
+  const elementos = obtenerElementos();
+  res.json(elementos);
 });
 
-// Servir archivos estáticos (archivos HTML, CSS, imágenes, etc.)
-app.use(express.static(path.join(__dirname, 'ruta-a-tu-carpeta-de-archivos-estaticos'))); // NO ESTA TERMINADO
+// Ruta para obtener un elemento por ID
+app.get('/elementos/:id', (req, res) => {
+  const elementos = obtenerElementos();
+  const id = parseInt(req.params.id);
+  const elemento = elementos.find(el => el.id === id);
 
-// Capturar todas las demás solicitudes y redirigirlas a Pagina_Principal.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'ruta-a-tu-carpeta-de-archivos-estaticos', 'Pagina_Principal.html')); // NO ESTA TERMINADO
+  if (elemento) {
+    res.json(elemento);
+  } else {
+    res.status(404).json({ mensaje: 'Elemento no encontrado' });
+  }
+});
+
+// Ruta para crear un nuevo elemento
+app.post('/elementos', (req, res) => {
+  const elementos = obtenerElementos();
+  const nuevoElemento = req.body;
+
+  // Asignar un nuevo ID al elemento
+  nuevoElemento.id = obtenerNuevoId(elementos);
+
+  elementos.push(nuevoElemento);
+  guardarElementos(elementos);
+
+  res.json({ mensaje: 'Elemento creado exitosamente', elemento: nuevoElemento });
+});
+
+// Ruta para actualizar un elemento por ID
+app.put('/elementos/:id', (req, res) => {
+  const elementos = obtenerElementos();
+  const id = parseInt(req.params.id);
+  const indice = elementos.findIndex(el => el.id === id);
+
+  if (indice !== -1) {
+    const elementoActualizado = req.body;
+    elementoActualizado.id = id;
+    elementos[indice] = elementoActualizado;
+
+    guardarElementos(elementos);
+
+    res.json({ mensaje: 'Elemento actualizado exitosamente', elemento: elementoActualizado });
+  } else {
+    res.status(404).json({ mensaje: 'Elemento no encontrado' });
+  }
+});
+
+// Ruta para eliminar un elemento por ID
+app.delete('/elementos/:id', (req, res) => {
+  const elementos = obtenerElementos();
+  const id = parseInt(req.params.id);
+  const indice = elementos.findIndex(el => el.id === id);
+
+  if (indice !== -1) {
+    const elementoEliminado = elementos.splice(indice, 1)[0];
+    guardarElementos(elementos);
+
+    res.json({ mensaje: 'Elemento eliminado exitosamente', elemento: elementoEliminado });
+  } else {
+    res.status(404).json({ mensaje: 'Elemento no encontrado' });
+  }
 });
 
 // Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor en ejecución en http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+// Función para obtener elementos desde el archivo JSON
+function obtenerElementos() {
+  const contenido = fs.readFileSync('elementos.json', 'utf-8');
+  return JSON.parse(contenido);
+}
+
+// Función para guardar elementos en el archivo JSON
+function guardarElementos(elementos) {
+  const contenido = JSON.stringify(elementos, null, 2);
+  fs.writeFileSync('elementos.json', contenido, 'utf-8');
+}
+
+// Función para obtener un nuevo ID para un elemento
+function obtenerNuevoId(elementos) {
+  const maxId = elementos.reduce((max, el) => (el.id > max ? el.id : max), 0);
+  return maxId + 1;
+}
