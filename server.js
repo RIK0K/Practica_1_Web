@@ -18,7 +18,15 @@ app.get('/api/elementos', (req, res) => {
   res.json(elementos);
 });
 
+// Servir archivos estáticos (archivos HTML, CSS, imágenes, etc.)
+app.use(express.static(path.join(__dirname, 'aqui va la ruta a nuestro archivo estatico'))); // NO TERMINDADO
+
+// Capturar todas las demás solicitudes y redirigirlas a Pagina_Principal.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'aqui va la ruta a nuestro archivo estatico', 'Pagina_Principal.html')); // NO TERMINDADO
+});
+
 // Iniciar el servidor
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+  console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
