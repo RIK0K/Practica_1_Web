@@ -1,0 +1,16 @@
+{
+  "name": "practica_1_web",
+  "version": "1.0.0",
+  "description": "Nombre pagina web: Fenix shop\r Autores: Alejandro Rico González\r          Gaizka Aranbarri Berasaluze\r          Mario Aparisi Castro",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
