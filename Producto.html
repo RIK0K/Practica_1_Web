@@ -46,13 +46,6 @@
           <b>Camiseta blanca logo</b>
         </h1>
         <p id="prod_date">19 Nov 2023</p>
-        <div id="prod_review1">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-half"></i>
-          <i class="bi bi-star"></i>
-        </div>
         <p id="precio"><b>25€</b></p>
         <div class="cont">
           <div class="row">
@@ -79,14 +72,13 @@
     </div>
 
     <!-- Introducir Feedback -->
-    <div class="container" id="review">
+    <form class="container" method="post" action="post/new" id="review">
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" placeholder="Nombre" id="review_name">
         </div>
         <div class="col">
-          <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i
-            class="bi bi-star"></i>
+          <input type="number" class="form-control" placeholder="Valoracion 1-10" id="review_email">
         </div>
         <div style="height: 5px;"></div>
       </div>
@@ -94,8 +86,8 @@
         <input type="text" class="form-control" placeholder="Opinión" id="review_name">
       </div>
       <div class="row"></div>
-      <button type="button" class="btn btn-danger" id="review_button">Enviar</button>
-    </div>
+      <input type="submit" class="btn btn-danger" id="review_button" value="Enviar"></input>
+    </form>
   </div>
 
   <!-- Ejemplos Feedback usuario -->
