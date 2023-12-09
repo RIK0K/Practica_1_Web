@@ -1,0 +1,44 @@
+[
+  {
+    "nombre": "Alvaro",
+    "valroacion": 9,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "6"
+  },
+  {
+    "nombre": "Alex",
+    "valroacion": 7,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "6"
+  },
+  {
+    "nombre": "Pepe",
+    "valroacion": 5,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "6"
+  },
+  {
+    "nombre": "Juan",
+    "valroacion": 1,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "1"
+  },
+  {
+    "nombre": "Manolo",
+    "valroacion": 9,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "1"
+  },
+  {
+    "nombre": "Mabel",
+    "valroacion": 39,
+    "comentario": "Muy chula",
+    "categoria": "gorros",
+    "id": "2"
+  }
+]
