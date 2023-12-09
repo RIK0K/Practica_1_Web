@@ -1,5 +1,6 @@
 
 import express from 'express';
+import cors from 'cros';
 const app = express();
 const port = 3000;
 
@@ -9,6 +10,7 @@ import {
 
 // Middleware para parsear JSON en las solicitudes
 app.use(express.json());
+app.use(cors());
 
 // Ruta para obtener todos los elementos
 app.get('/elementos', (req, res) => {
