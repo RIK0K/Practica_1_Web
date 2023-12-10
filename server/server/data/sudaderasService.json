@@ -1,4 +1,4 @@
-[
+{"sudaderas": [
     {
         "nombre": "GORRA DE BESIBOL",
         "precio": 33,
@@ -15,4 +15,4 @@
         "categoria": "sudaderas",
         "id": 2
     }
-]
+]}
