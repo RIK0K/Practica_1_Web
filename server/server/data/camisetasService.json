@@ -1,23 +1,23 @@
 [
   {
-    "nombre": "Camiseta blanca fenix",
-    "precio": 20,
+    "nombre": "GORRA DE BESIBOL",
+    "precio": 33,
     "imagen": "ruta/de/la/imagen1.jpg",
-    "descripcion": "Descripción de la camiseta blanca",
+    "descripcion": "Descripción de la camiseta blanca.",
     "categoria": "camisetas",
     "id": 1
   },
   {
-    "nombre": "camiseta negra",
-    "precio": 20,
+    "nombre": "GORRA DE BESIBOL",
+    "precio": 33,
     "imagen": "ruta/de/la/imagen1.jpg",
     "descripcion": "Descripción de la camiseta blanca.",
     "categoria": "camisetas",
     "id": 2
   },
   {
-    "nombre": "camiseta amarilla",
-    "precio": 20,
+    "nombre": "GORRA DE BESIBOL",
+    "precio": 33,
     "imagen": "ruta/de/la/imagen1.jpg",
     "descripcion": "Descripción de la camiseta blanca.",
     "categoria": "camisetas",

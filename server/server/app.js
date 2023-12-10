@@ -1,15 +1,16 @@
 
 import express from 'express';
-import cors from 'cros';
+import cors from 'cors';
 const app = express();
 const port = 3000;
 
 import {
-  obtenerElemento, obtenerElementos, guardarElemento, crearElemento, borrarElemento, obtenerResenasDeLosElementos, crearResenaDelElemento, obtenerResenaDelElemento
+  obtenerElemento, obtenerElementos, guardarElemento, crearElemento, borrarElemento, obtenerResenasDeLosElementos, crearResenaDelElemento, obtenerResenaDelElemento, iniciarArchivosDeElementos
 } from "./metodos/metodos.js";
 
+
+app.init
 // Middleware para parsear JSON en las solicitudes
-app.use(express.json());
 app.use(cors());
 
 // Ruta para obtener todos los elementos
@@ -96,9 +97,12 @@ app.post('/elementos/resenas/:categoria/:id', (req, res) => {
 });
 
 
+await iniciarArchivosDeElementos()
+
 // Iniciar el servidor
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
 
 

@@ -5,10 +5,33 @@ import { join, dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const archivoGorrosBase = join(__dirname, '..', 'data', 'datosBase', 'gorros.json');
+const archivoSudaderasBase = join(__dirname, '..', 'data', 'datosBase', 'sudaderas.json');
+const archivoCamisetasBase = join(__dirname, '..', 'data', 'datosBase', 'camisetas.json');
+const archivoResenassBase = join(__dirname, '..', 'data', 'datosBase', 'resenas.json');
 const archivoGorros = join(__dirname, '..', 'data', 'gorrosService.json');
 const archivoSudaderas = join(__dirname, '..', 'data', 'sudaderasService.json');
 const archivoCamisetas = join(__dirname, '..', 'data', 'camisetasService.json');
 const archivoResenas = join(__dirname, '..', 'data', 'resenas.json');
+
+
+export const iniciarArchivosDeElementos = async () => {
+    try {
+        const gorrosBase = readFileSync(archivoGorrosBase, 'utf8');
+        const sudaderasBase = readFileSync(archivoSudaderasBase, 'utf8');
+        const camisetasBase = readFileSync(archivoCamisetasBase, 'utf8');
+        const resenasBase = readFileSync(archivoResenassBase, 'utf8');
+
+        writeFileSync(nombreDeArchivosPorCategoria("gorros"), gorrosBase, 'utf8');
+        writeFileSync(nombreDeArchivosPorCategoria("sudaderas"), sudaderasBase, 'utf8');
+        writeFileSync(nombreDeArchivosPorCategoria("camisetas"), camisetasBase, 'utf8');
+        writeFileSync(nombreDeArchivosPorCategoria("resenas"), resenasBase, 'utf8');
+    } catch (error) {
+        console.error(`Error al leer el archivo base: ${error.message}`);
+        return null
+    }
+
+}
 
 const nombreDeArchivosPorCategoria = (categoria) => {
     switch (categoria) {
