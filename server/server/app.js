@@ -41,7 +41,6 @@ Promise.all([
     console.error('Error al cargar los archivos JSON:', error);
   });
 
-
 app.init
 // Middleware para parsear JSON en las solicitudes
 app.use(cors());
