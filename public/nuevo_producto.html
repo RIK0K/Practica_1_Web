@@ -48,21 +48,21 @@
 
   <form id="elementForm" action="guardar_elemento.php" method="post">
     <!-- Campo de Título -->
-    <label for="elementTitle">Título:</label>
-    <input type="text" id="elementTitle" name="elementTitle" required><br>
+    <label for="nombre">Título:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
 
     <!-- Campo de Descripción -->
-    <label for="elementDescription">Descripción:</label>
-    <textarea id="elementDescription" name="elementDescription" rows="4" required></textarea><br>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" rows="4" required></textarea><br>
 
     <!-- Campo de Imagen -->
-    <label for="elementImage">Imagen:</label>
-    <input type="file" id="elementImage" name="elementImage" accept="image/*"><br>
+    <label for="imagen">Imagen:</label>
+    <input type="file" id="imagen" name="imagen" accept="image/*"><br>
 
      <!-- Campo de Precio -->
-     <label for="tentacles">Precio:</label>
-     <input type="number" id="tentacles"
-     name="tentacles" min="5" max="100"/>
+     <label for="precio">Precio:</label>
+     <input type="number" id="precio"
+     name="precio" min="5" max="100"/>
 
     <!-- Campo Radio con 3 opciones -->
     <label>Tipo prenda:</label>
@@ -78,9 +78,7 @@
 
     <!-- Botones de Guardar y Cancelar -->
     <div class="bot-can-guar">
-      <a href=#>
-        <button class="btn btn-danger" type="button">Guardar</button>
-    </a>
+        <button onclick="nuevoElemento()"class="btn btn-danger" type="button">Guardar</button>
       <a href="Pagina_Principal.html">
           <button class="btn btn-danger" type="button">Cancelar</button>
       </a>

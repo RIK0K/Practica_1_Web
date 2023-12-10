@@ -20,50 +20,23 @@ app.get('/elementos', (req, res) => {
 });
 
 // Ruta para obtener un elemento por ID y categoria
-app.get('/elementos/:categoria/:id', (req, res) => {
-  if (req.params.categoria === undefined) {
-    res.status(404).json({ mensaje: 'La categoria es obligatoria' });
-  }
-  if (req.params.id === undefined) {
-    res.status(404).json({ mensaje: 'El id es obligatoria' });
-  }
-  const elemento = obtenerElemento(req.params.categoria, parseInt(req.params.id));
-  if (elemento !== undefined) {
-    res.json(elemento);
-  } else {
-    res.status(404).json({ mensaje: 'Elementos no encontrado' });
-  }
-});
+app.get('/elementos/:categoria/:id', (req, res));
 
 // Ruta para crear un nuevo elemento
 app.post('/elementos/:categoria', (req, res) => {
   const response = crearElemento(req.body)
-  res.json({ mensaje: `Nuevo elemento creado con el id: ${response} en la categoria ${req.body.categoria}` });
 });
 
 
 // Ruta para actualizar un nuevo elemento
 app.put('/elementos/:categoria/:id', (req, res) => {
   const response = guardarElemento(req.body)
-  res.json({ mensaje: `Elemento actulizado con el id: ${response} en la categoria ${req.body.categoria}` });
 });
 
 
 // Ruta para eliminar un elemento por ID y categoria
 app.delete('/elementos/:categoria/:id', (req, res) => {
-  if (req.params.categoria === undefined) {
-    res.status(404).json({ mensaje: 'La categoria es obligatoria' });
-  }
-  if (req.params.id === undefined) {
-    res.status(404).json({ mensaje: 'El id es obligatoria' });
-  }
   const response = borrarElemento(req.params.categoria, parseInt(req.params.id))
-  if (response) {
-    res.json({ mensaje: `Elemento borrado con el id: ${req.params.id} en la categoria ${req.params.categoria}` });
-  } else {
-    res.json({ mensaje: `Elemento con el id: ${req.params.id} en la categoria ${req.params.categoria} no se ha podido borrar` });
-
-  }
 });
 
 //RESEÑAS
@@ -75,25 +48,11 @@ app.get('/elementos/resenas', (req, res) => {
 });
 
 // Ruta para obtener un elemento por ID y categoria
-app.get('/elementos/resenas/:categoria/:id', (req, res) => {
-  if (req.params.categoria === undefined) {
-    res.status(404).json({ mensaje: 'La categoria es obligatoria' });
-  }
-  if (req.params.id === undefined) {
-    res.status(404).json({ mensaje: 'El id es obligatoria' });
-  }
-  const elemento = obtenerResenaDelElemento(req.params.categoria, parseInt(req.params.id));
-  if (elemento !== undefined) {
-    res.json(elemento);
-  } else {
-    res.status(404).json({ mensaje: 'Reseñas no encontrado' });
-  }
-});
+app.get('/elementos/resenas/:categoria/:id', (req, res));
 
 // Ruta para crear un nuevo elemento
 app.post('/elementos/resenas/:categoria/:id', (req, res) => {
   const response = crearResenaDelElemento(req.body)
-  res.json({ mensaje: `La nueva reseña se creado para el elemento con el id: ${req.body.id} en la categoria ${req.body.categoria}` });
 });
 
 
@@ -104,5 +63,52 @@ app.listen(port, async () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
 
+function addelementoToDOM(elemento, i) {
+  let div = document.createElement("div");
+  content.appendChild(div);
 
+  let pTitulo = document.createElement("p");
+  div.appendChild(pTitulo);
 
+  pTitulo.textContent = camiseta.imagen;
+}
+
+function addelemento(nuevoelemento) {
+
+  elemento.push(nuevoelemento);
+
+  addelementoToDOM(nuevoelemento, elemento.length - 1);
+
+}
+
+function nuevoElemento() {
+
+  let nombreInput = document.getElementById('nombre');
+  let nombre = nombreInput.value;
+  nombreInput.value = '';
+
+  let descripcionInput = document.getElementById('descripcion');
+  let descripcion = descripcionInput.value;
+  descripcionInput.value = '';
+
+  let imagenInput = document.getElementById('imagen');
+  let imagen = imagenInput.value;
+  imagenInput.value = '';
+
+  let precioInput = document.getElementById('precio');
+  let precio = precioInput.value;
+  precioInput.value = '';
+
+  let libro = { nombre: nombre, descripcion: descripcion, imagen: imagen, precio: precio};
+
+  addelemento(libro);
+}
+
+let content = document.getElementById('content');
+
+for (let i = 0; i < elemento.length; i++) {
+
+    let elemento = elemento[i];
+
+    addelementoToDOM(libro, i);
+}
