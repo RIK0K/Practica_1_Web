@@ -1,38 +1,91 @@
-// main.js
-$(document).ready(function() {
-    // Cargar elementos al cargar la página
-    cargarElementos();
-  
-    function cargarElementos() {
-      // Realizar solicitud al servidor para obtener elementos
-      $.get('/api/elementos', function(data) {
-        mostrarElementos(data);
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const contenedorCamisetas = document.getElementById('camisetas');
+  const contenedorSudaderas = document.getElementById('sudaderas');
+  const contenedorGorros = document.getElementById('gorros');
+
+  fetch('http://localhost:3000/elementos')
+    .then(response => response.json())
+    .then(productos => {
+      // Iterar sobre el array de productos
+      productos["camisetas"].forEach(producto => {
+        // Crear un nuevo elemento <div> para cada producto
+        const nuevoProducto = document.createElement('div');
+        nuevoProducto.className = 'org-product';
+
+        // Crear un enlace <a> para cada producto (opcional)
+        const enlaceProducto = document.createElement('a');
+        enlaceProducto.href = `Producto.html?id=${producto.id}&categoria=${producto.categoria}`; // Puedes poner la URL de la página del producto
+
+        // Crear una imagen <img> para cada producto
+        const imagenProducto = document.createElement('img');
+        imagenProducto.className = 'product-photo';
+        imagenProducto.src = producto.imagen;
+
+        // Agregar la imagen al enlace (opcional)
+        enlaceProducto.appendChild(imagenProducto);
+
+        // Agregar el enlace al nuevo producto (opcional)
+        nuevoProducto.appendChild(enlaceProducto);
+
+        // Puedes seguir agregando más detalles como nombre, precio, descripción, etc.
+
+        // Agregar el nuevo producto al contenedor
+        contenedorCamisetas.appendChild(nuevoProducto);
       });
-    }
-  
-    function mostrarElementos(elementos) {
-      const container = $('#elementosContainer');
-      container.empty();
-  
-      elementos.forEach(function(elemento) {
-        // Crear elementos en la interfaz (lista o grid)
-        const elementoHTML = `<div>
-                                <h3>${elemento.nombre}</h3>
-                                <p>Precio: ${elemento.precio}€</p>
-                                <button onclick="editarElemento(${elemento.id})">Editar</button>
-                                <button onclick="eliminarElemento(${elemento.id})">Eliminar</button>
-                              </div>`;
-        container.append(elementoHTML);
+      productos["sudaderas"].forEach(producto => {
+        // Crear un nuevo elemento <div> para cada producto
+        const nuevoProducto = document.createElement('div');
+        nuevoProducto.className = 'org-product';
+
+        // Crear un enlace <a> para cada producto (opcional)
+        const enlaceProducto = document.createElement('a');
+        enlaceProducto.href = `Producto.html?id=${producto.id}&categoria=${producto.categoria}`; // Puedes poner la URL de la página del producto
+
+        // Crear una imagen <img> para cada producto
+        const imagenProducto = document.createElement('img');
+        imagenProducto.className = 'product-photo';
+        imagenProducto.src = producto.imagen;
+
+        // Agregar la imagen al enlace (opcional)
+        enlaceProducto.appendChild(imagenProducto);
+
+        // Agregar el enlace al nuevo producto (opcional)
+        nuevoProducto.appendChild(enlaceProducto);
+
+        // Puedes seguir agregando más detalles como nombre, precio, descripción, etc.
+
+        // Agregar el nuevo producto al contenedor
+        contenedorSudaderas.appendChild(nuevoProducto);
       });
-    }
-  
-    // Función para editar elemento (puedes implementar la lógica según tus necesidades)
-    window.editarElemento = function(id) {
-      console.log(`Editar elemento con ID: ${id}`);
-    }
-  
-    // Función para eliminar elemento (puedes implementar la lógica según tus necesidades)
-    window.eliminarElemento = function(id) {
-      console.log(`Eliminar elemento con ID: ${id}`);
-    }
-  }); 
+      productos["gorros"].forEach(producto => {
+        // Crear un nuevo elemento <div> para cada producto
+        const nuevoProducto = document.createElement('div');
+        nuevoProducto.className = 'org-product';
+
+        // Crear un enlace <a> para cada producto (opcional)
+        const enlaceProducto = document.createElement('a');
+        enlaceProducto.href = `Producto.html?id=${producto.id}&categoria=${producto.categoria}`; // Puedes poner la URL de la página del producto
+
+        // Crear una imagen <img> para cada producto
+        const imagenProducto = document.createElement('img');
+        imagenProducto.className = 'product-photo';
+        imagenProducto.src = producto.imagen;
+
+        // Agregar la imagen al enlace (opcional)
+        enlaceProducto.appendChild(imagenProducto);
+
+        // Agregar el enlace al nuevo producto (opcional)
+        nuevoProducto.appendChild(enlaceProducto);
+
+        // Puedes seguir agregando más detalles como nombre, precio, descripción, etc.
+
+        // Agregar el nuevo producto al contenedor
+        contenedorGorros.appendChild(nuevoProducto);
+      });
+    })
+    .catch(error => {
+      console.error('Error al hacer la solicitud:', error);
+    });
+});
