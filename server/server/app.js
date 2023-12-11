@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import mustacheExpress from 'mustache-express';
 const app = express();
 const port = 3000;
+app.engine('html', mustacheExpress(), '.html');
 
 
 import {
