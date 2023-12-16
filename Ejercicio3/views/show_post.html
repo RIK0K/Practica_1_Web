@@ -39,7 +39,8 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <img id="prod_photo" src="https://srv.latostadora.com/designall.dll/ave_fenix_h_w--i:13562329865480135623201709265;c:2986548;h:320;s:H_A5;k:0c351da00a184729137c618fb84dce9b;p:1;f:f.jpg"
+        <img id="prod_photo"
+          src="https://srv.latostadora.com/designall.dll/ave_fenix_h_w--i:13562329865480135623201709265;c:2986548;h:320;s:H_A5;k:0c351da00a184729137c618fb84dce9b;p:1;f:f.jpg"
           alt="Camiseta blanca con logo de fenix negro en medio" />
       </div>
       <div class="col">
@@ -93,7 +94,7 @@
   </div>
 
   <!-- Ejemplos Feedback usuario -->
-    {{errorMessage}}
+  {{errorMessage}}
   <div class="container" id="opinion_usuario">
     {{#reviews}}
     <div class="row" id="usuario_x">
@@ -109,38 +110,37 @@
   <!-- Botones editar y eliminar producto -->
   <div class="botones">
     <a href="/post/{{post.id}}/delete">
-    <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
-  </a>
+      <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
+    </a>
     <button type="button" class="btn btn-danger" id="review_button">Editar producto</button>
     <a href="/"><button type="button" class="btn btn-danger" id="review_button">Mostrar todos los productos</button></a>
   </div>
 
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-      <p id="space-big"></p>
-      <div class="banner">
-        <div class="footer-banner">
-          <img src="/Logo_final.png" class="image-banner">
-          <p><strong>CONTACTO: <a
-                href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&theme=glif">fenix.clothing@gmail.com</a>
-            </strong></p>
-          <strong>NUESTRAS REDES</strong>
-          <p>
-            <a href="https://www.instagram.com/" class="btn">
-              <i class="bi bi-instagram"> Instagram</i>
-            </a>
-            <a href="twitter.com" class="btn">
-              <i class="bi bi-twitter-x"> Twitter X</i>
-            </a>
-            <a href="https://www.tiktok.com/es/" class="btn">
-              <i class="bi bi-tiktok"> TikTok</i>
-            </a>
-          </p>
-        </div>
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p id="space-big"></p>
+    <div class="banner">
+      <div class="footer-banner">
+        <img src="/Logo_final.png" class="image-banner">
+        <p><strong>CONTACTO: <a
+              href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&theme=glif">fenix.clothing@gmail.com</a>
+          </strong></p>
+        <strong>NUESTRAS REDES</strong>
+        <p>
+          <a href="https://www.instagram.com/" class="btn">
+            <i class="bi bi-instagram"> Instagram</i>
+          </a>
+          <a href="twitter.com" class="btn">
+            <i class="bi bi-twitter-x"> Twitter X</i>
+          </a>
+          <a href="https://www.tiktok.com/es/" class="btn">
+            <i class="bi bi-tiktok"> TikTok</i>
+          </a>
+        </p>
       </div>
-    </footer>
+    </div>
+  </footer>
 </body>
 
 </html>
-
