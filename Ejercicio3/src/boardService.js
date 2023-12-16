@@ -8,9 +8,9 @@ let nextId = 0;
 
 // Se incrementa en 1 el id para el siguiente elemento, se guarda en el mapa.
 export const addPost = (elementRadio, post) => {
-    // if (!posts[elementRadio] || !(posts[elementRadio] instanceof Map)) {
-    //   posts[elementRadio] = new Map();
-    //}
+     if (!posts[elementRadio] || !(posts[elementRadio] instanceof Map)) {
+        posts[elementRadio] = new Map();
+    }
 
     let id = nextId++;
     post.id = id.toString();
