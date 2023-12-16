@@ -1,49 +1,46 @@
-// Objeto 'posts' que almacena categorías (camisetas, sudaderas, gorros), cada una representada por un mapa.
 const posts = {
     camisetas: new Map(),
     sudaderas: new Map(),
     gorros: new Map(),
 };
-
-// Variable para asignar identificadores únicos a cada post.
 let nextId = 0;
 
-// Función para agregar un post a la categoría especificada.
-export const addPost = (elementRadio, post) => {
-    // Si la categoría no existe o no es un objeto tipo 'Map', se crea un nuevo mapa.
-    if (!posts[elementRadio] || !(posts[elementRadio] instanceof Map)) {
-        posts[elementRadio] = new Map();
-    }
 
-    // Se asigna un nuevo identificador al post y se agrega al mapa correspondiente.
+// Se incrementa en 1 el id para el siguiente elemento, se guarda en el mapa.
+export const addPost = (elementRadio, post) => {
+    // if (!posts[elementRadio] || !(posts[elementRadio] instanceof Map)) {
+    //   posts[elementRadio] = new Map();
+    //}
+
     let id = nextId++;
     post.id = id.toString();
     posts[elementRadio].set(post.id, post);
 }
 
-// Función para eliminar un post de una categoría específica.
+
+
+// Se elimina un elemento del mapa
 export const deletePostost = (elementRadio, id) => {
-    // Elimina el post con el ID especificado de la categoría dada.
     posts[elementRadio].delete(id);
 }
 
-// Función para obtener todos los posts de una categoría.
+
+// Se obtiene todos los elementos del mapa.
 export function getPosts(elementRadio) {
-    // Devuelve un array con todos los posts de la categoría especificada.
     return [...posts[elementRadio].values()];
 }
 
-// Función para obtener un post específico de una categoría.
+
+// Se obtiene un elemento concreto del mapa
 export const getPost = (elementRadio, id) => {
     if (posts[elementRadio]) {
-        // Devuelve el post con el ID dado de la categoría especificada.
         return posts[elementRadio].get(id);
     } else {
-        // Si la categoría no existe, muestra un mensaje de error en la consola.
         console.error(`La categoría '${elementRadio}' no existe.`);
         return null;
     }
 }
+
 
 // Ejemplos de uso: se añaden varios posts a las categorías 'sudaderas', 'camisetas' y 'gorros'.
 addPost("sudaderas", { img: "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/293a76d0f5e97b6853ee64e6af02875d.jpg?imageView2/2/w/800/q/70" });
