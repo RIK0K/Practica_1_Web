@@ -40,16 +40,16 @@
     <div class="row">
       <div class="col">
         <img id="prod_photo"
-          src="https://srv.latostadora.com/designall.dll/ave_fenix_h_w--i:13562329865480135623201709265;c:2986548;h:320;s:H_A5;k:0c351da00a184729137c618fb84dce9b;p:1;f:f.jpg"
-          alt="Camiseta blanca con logo de fenix negro en medio" />
+          src={{product.image}}
+           />
       </div>
       <div class="col">
 
         <h1 id="prod_title">
-          <b> camiseta blanca</b>
+          <b> {{prod_title}}</b>
         </h1>
         <p id="prod_date">19 Nov 2023</p>
-        <p id="precio"><b>25€</b></p>
+        <p id="precio"><b>{{precio}}</b></p>
         <div class="cont">
           <div class="row">
             <div class="col">
@@ -68,8 +68,7 @@
           </div>
         </div>
         <div>
-          <p id="prod_description">Estilo único y original con esta camiseta blanca de algodón, que tiene estampado en
-            el centro un impresionante logo de fénix. El fénix es un símbolo de renacimiento, fuerza y esperanza.</p>
+          <p id="prod_description">{{prod_description}}</p>
         </div>
       </div>
     </div>
