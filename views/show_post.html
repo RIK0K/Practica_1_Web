@@ -34,19 +34,22 @@
     </div>
   </div>
 
+
+
   </div>
   <!-- Imagen de producto con descripcion -->
   <div class="container">
+    {{#posts}}
     <div class="row">
       <div class="col">
         <img id="prod_photo"
-          src={{product.image}}
+          src={{img}}
            />
       </div>
       <div class="col">
 
         <h1 id="prod_title">
-          <b> {{prod_title}}</b>
+          <b> {{nombre}}</b>
         </h1>
         <p id="prod_date">19 Nov 2023</p>
         <p id="precio"><b>{{precio}}</b></p>
@@ -68,7 +71,7 @@
           </div>
         </div>
         <div>
-          <p id="prod_description">{{prod_description}}</p>
+          <p id="prod_description">{{descripcion}}</p>
         </div>
       </div>
     </div>
@@ -90,6 +93,7 @@
       <div class="row"></div>
       <input type="submit" class="btn btn-danger" id="review_button" value="Enviar"></input>
     </form>
+    {{/posts}}
   </div>
 
   <!-- Ejemplos Feedback usuario -->
