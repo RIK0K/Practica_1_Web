@@ -39,11 +39,10 @@
   </div>
   <!-- Imagen de producto con descripcion -->
   <div class="container">
-    {{#posts}}
     <div class="row">
       <div class="col">
         <img id="prod_photo"
-          src={{img}}
+          src="{{img}}"
            />
       </div>
       <div class="col">
@@ -77,7 +76,7 @@
     </div>
 
     <!-- Introducir Feedback -->
-    <form class="container" method="post" action="/review" id="review">
+    <form class="container" method="post" action="/post/:id/review" id="review">
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" placeholder="Nombre" id="review_name" name="name">
@@ -93,7 +92,6 @@
       <div class="row"></div>
       <input type="submit" class="btn btn-danger" id="review_button" value="Enviar"></input>
     </form>
-    {{/posts}}
   </div>
 
   <!-- Ejemplos Feedback usuario -->

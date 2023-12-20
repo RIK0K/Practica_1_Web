@@ -40,25 +40,26 @@ router.get('/', (req, res) => {
 });
 
 // Arreglo para almacenar reseñas
-let reviews = [];
+let reviews = new Map();
 
 // Ruta para manejar la solicitud POST a '/:review'
-router.post('/:review', (req, res) => {
+router.post('/post/:id/review', (req, res) => {
     // Agregar la nueva reseña al arreglo
     if (!req.body.name || !req.body.rating || !req.body.review) {
         // Renderizar la vista 'Producto' con un mensaje de error si faltan campos
-        res.render('Producto', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews });
+        res.render('show_post', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews });
         return;
     } else {
-        reviews.push({
+        reviews.set(req.params.id, {
             name: req.body.name,
             rating: req.body.rating,
             review: req.body.review
         });
-
-        // Renderizar la vista 'Producto' con el arreglo de reseñas actualizado
-        res.render('Producto', { reviews: reviews });
     }
+        
+
+    // Renderizar la vista 'Producto' con el arreglo de reseñas actualizado
+    res.render('show_post', { reviews: req.params.id });
 });
 
 // Exportar el enrutador para su uso en otras partes de la aplicación
