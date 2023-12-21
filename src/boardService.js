@@ -20,7 +20,7 @@ export const addPost = (elementRadio, post) => {
 
 
 // Se elimina un elemento del mapa
-export const deletePostost = (elementRadio, id) => {
+export const deletePost = (elementRadio, id) => {
     posts[elementRadio].delete(id);
 }
 

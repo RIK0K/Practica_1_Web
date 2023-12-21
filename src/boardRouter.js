@@ -25,7 +25,7 @@ router.get('/post/:id,:elementRadio', (req, res) => {
 });
 
 router.get('/post/:id/delete', (req, res) => {
-    boardService.deletePost(req.params.id);
+    boardService.deletePost(req.params.elementRadio,req.params.id);
     res.render('deleted_post');
 });
 
