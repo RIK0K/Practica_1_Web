@@ -19,10 +19,26 @@ export const addPost = (elementRadio, post) => {
 
 
 
+// export function deletePost(id){
+//     posts.delete(id);
+// }
+    
+
+
 // Se elimina un elemento del mapa
+// export const deletePost = (elementRadio, id) => {
+//     posts[elementRadio].delete(id);
+// }
+
+
 export const deletePost = (elementRadio, id) => {
-    posts[elementRadio].delete(id);
+    if (posts[elementRadio] && posts[elementRadio] instanceof Map) {
+        posts[elementRadio].delete(id);
+    } else {
+        console.error(`La categoría '${elementRadio}' no existe o no es un Map.`);
+    }
 }
+
 
 
 // Se obtiene todos los elementos del mapa.
