@@ -19,8 +19,8 @@ router.post('/post/new', (req, res) => {
 });
 
 
-router.get('/post/:id', (req, res) => {
-    let post = boardService.getPost(req.params.id);
+router.get('/post/:id,:elementRadio', (req, res) => {
+    let post = boardService.getPost(req.params.elementRadio, req.params.id);
     res.render('show_post', { post });
 });
 
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
 let reviews = new Map();
 
 // Ruta para manejar la solicitud POST a '/:review'
-router.post('/post/:id/review', (req, res) => {
+router.post('/post/:id,:elementRadio', (req, res) => {
     // Agregar la nueva reseña al arreglo
     if (!req.body.name || !req.body.rating || !req.body.review) {
         // Renderizar la vista 'Producto' con un mensaje de error si faltan campos

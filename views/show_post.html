@@ -41,17 +41,15 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <img id="prod_photo"
-          src="{{img}}"
-           />
+        <img id="prod_photo" src="{{post.img}}" >
       </div>
       <div class="col">
 
         <h1 id="prod_title">
-          <b> {{nombre}}</b>
+          <b> {{post.nombre}}</b>
         </h1>
         <p id="prod_date">19 Nov 2023</p>
-        <p id="precio"><b>{{precio}}</b></p>
+        <p id="precio"><b>{{post.precio}}</b></p>
         <div class="cont">
           <div class="row">
             <div class="col">
@@ -70,7 +68,7 @@
           </div>
         </div>
         <div>
-          <p id="prod_description">{{descripcion}}</p>
+          <p id="prod_description">{{post.descripcion}}</p>
         </div>
       </div>
     </div>
