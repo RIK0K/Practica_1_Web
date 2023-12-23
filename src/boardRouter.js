@@ -24,10 +24,50 @@ router.get('/post/:id,:elementRadio', (req, res) => {
     res.render('show_post', { post });
 });
 
+
+
+// router.get('/post/delete/:elementRadio/:id', (req, res) => {
+//     const elementRadio = req.params.elementRadio;
+//     const postId = req.params.id;
+
+//     if (elementRadio && postId) {
+//         boardService.deletePost(elementRadio, postId);
+//         res.render('deleted_post');
+//     } else {
+//         console.error('La categoría o el ID no se proporcionaron en la URL.');
+//         res.status(400).send('Bad Request');
+//     }
+// });
+
+
+
+
+
+// borra solo sudaderas
 router.get('/post/:id/delete', (req, res) => {
-    boardService.deletePost(req.params.elementRadio,req.params.id);
-    res.render('deleted_post');
+    const elementRadio = req.query.elementRadio;
+    const postId = req.params.id;
+
+    if (elementRadio) {
+        boardService.deletePost(elementRadio, postId);
+        res.render('deleted_post');
+    } else {
+        console.error('La categoría no se proporcionó en la URL.');
+        res.status(400).send('Bad Request');
+    }
 });
+
+
+
+// router.get('/post/:id/delete', (req, res) => {
+//     boardService.deletePost(req.params.elementRadio,req.params.id);
+//     res.render('deleted_post');
+// });
+
+
+
+
+
 
 // Ruta adicional que maneja la solicitud GET a '/'
 router.get('/', (req, res) => {
@@ -56,7 +96,7 @@ router.post('/post/:id,:elementRadio', (req, res) => {
             review: req.body.review
         });
     }
-        
+
 
     // Renderizar la vista 'Producto' con el arreglo de reseñas actualizado
     res.render('show_post', { reviews: req.params.id });

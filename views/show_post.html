@@ -41,7 +41,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <img id="prod_photo" src="{{post.img}}" >
+        <img id="prod_photo" src="{{post.img}}">
       </div>
       <div class="col">
 
@@ -108,9 +108,23 @@
 
   <!-- Botones editar y eliminar producto -->
   <div class="botones">
-    <a href="/post/{{post.id}}/delete">
+
+    <!-- <a href="/post/delete/{{elementRadio}}/{{post.id}}">
+      <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
+  </a> -->
+
+
+    <!-- <a href="/post/{{post.id}}/delete?elementRadio={{elementRadio}}">
+      <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
+  </a> -->
+
+
+    <!-- solo funciona con sudaderas -->
+    <a href="/post/{{post.id}}/delete?elementRadio=sudaderas">
       <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
     </a>
+
+
     <button type="button" class="btn btn-danger" id="review_button">Editar producto</button>
     <a href="/"><button type="button" class="btn btn-danger" id="review_button">Mostrar todos los productos</button></a>
   </div>
