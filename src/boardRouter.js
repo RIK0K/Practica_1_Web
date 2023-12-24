@@ -14,7 +14,7 @@ router.get('/', (_req, res) => {
 
 router.post('/post/new', (req, res) => {
     let { nombre, descripcion, precio, elementRadio, img } = req.body;
-    boardService.addPost(elementRadio, { nombre, descripcion, precio, img });
+    boardService.addPost(elementRadio, { elementRadio, nombre, descripcion, precio, img });
     res.render('saved_post');
 });
 
@@ -25,23 +25,6 @@ router.get('/post/:id,:elementRadio', (req, res) => {
 });
 
 
-
-
-// router.get('/post/:id/delete', (req, res) => {
-//     const elementRadio = req.query.elementRadio;
-//     const postId = req.params.id;
-
-//     console.log('Categoría:', elementRadio);
-//     console.log('ID del producto:', postId);
-
-//     if (elementRadio) {
-//         boardService.deletePost(elementRadio, postId);
-//         res.render('deleted_post');
-//     } else {
-//         console.error('La categoría no se proporcionó en la URL.');
-//         res.status(400).send('Bad Request');
-//     }
-// });
 
 
 // borrado de elementos
