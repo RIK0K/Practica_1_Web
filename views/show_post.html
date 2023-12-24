@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
   <div class="banner">
 
     <!-- Imagen logo con link a inicio -->
@@ -106,28 +107,19 @@
     {{/reviews}}
   </div>
 
+
+  
   <!-- Botones editar y eliminar producto -->
   <div class="botones">
-
-    <!-- <a href="/post/delete/{{elementRadio}}/{{post.id}}">
-      <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
-  </a> -->
-
-
-    <!-- <a href="/post/{{post.id}}/delete?elementRadio={{elementRadio}}">
-      <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
-  </a> -->
-
-
-    <!-- solo funciona con sudaderas -->
-    <a href="/post/{{post.id}}/delete?elementRadio=sudaderas">
+    <a href="/post/{{post.id}}/delete?elementRadio={{post.tipo}}">
       <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
     </a>
 
-
     <button type="button" class="btn btn-danger" id="review_button">Editar producto</button>
+
     <a href="/"><button type="button" class="btn btn-danger" id="review_button">Mostrar todos los productos</button></a>
   </div>
+
 
 
   <!-- PIE DE PÁGINA -->

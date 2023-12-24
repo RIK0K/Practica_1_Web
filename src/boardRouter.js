@@ -26,24 +26,25 @@ router.get('/post/:id,:elementRadio', (req, res) => {
 
 
 
-// router.get('/post/delete/:elementRadio/:id', (req, res) => {
-//     const elementRadio = req.params.elementRadio;
+
+// router.get('/post/:id/delete', (req, res) => {
+//     const elementRadio = req.query.elementRadio;
 //     const postId = req.params.id;
 
-//     if (elementRadio && postId) {
+//     console.log('Categoría:', elementRadio);
+//     console.log('ID del producto:', postId);
+
+//     if (elementRadio) {
 //         boardService.deletePost(elementRadio, postId);
 //         res.render('deleted_post');
 //     } else {
-//         console.error('La categoría o el ID no se proporcionaron en la URL.');
+//         console.error('La categoría no se proporcionó en la URL.');
 //         res.status(400).send('Bad Request');
 //     }
 // });
 
 
-
-
-
-// borra solo sudaderas
+// borrado de elementos
 router.get('/post/:id/delete', (req, res) => {
     const elementRadio = req.query.elementRadio;
     const postId = req.params.id;
@@ -56,16 +57,6 @@ router.get('/post/:id/delete', (req, res) => {
         res.status(400).send('Bad Request');
     }
 });
-
-
-
-// router.get('/post/:id/delete', (req, res) => {
-//     boardService.deletePost(req.params.elementRadio,req.params.id);
-//     res.render('deleted_post');
-// });
-
-
-
 
 
 
