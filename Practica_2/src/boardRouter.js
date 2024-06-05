@@ -14,8 +14,13 @@ router.get('/', (_req, res) => {
 
 router.post('/post/new', (req, res) => {
     let { nombre, descripcion, precio, elementRadio, img } = req.body;
+    if (!nombre || !descripcion || !precio || !elementRadio || !img) {
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+    }else if(precio < 0 || precio > 300){res.render('saved_post', { message: 'El precio debe estar entre 0 y 300'});}
+    else{
     boardService.addPost(elementRadio, { elementRadio, nombre, descripcion, precio, img });
-    res.render('saved_post');
+    res.render('saved_post', {message: 'Producto guardado con éxito'});
+    }
 });
 
 
@@ -60,8 +65,10 @@ let reviews = new Map();
 router.post('/post/:id,:elementRadio/review', (req, res) => {
     // Agregar la nueva reseña al arreglo
     if (!req.body.name || !req.body.rating || !req.body.review) {
-        // Renderizar la vista 'Producto' con un mensaje de error si faltan campos
-        res.render('show_post', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews.get(req.params.id) });
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+        return;
+    } else if (req.body.rating < 1 || req.body.rating > 10) {
+        res.render('saved_post', { message: 'La calificación debe estar entre 1 y 10' });
         return;
     } else {
         // Si ya existen reseñas para este producto, las obtenemos

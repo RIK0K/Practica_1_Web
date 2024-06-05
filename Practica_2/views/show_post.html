@@ -78,18 +78,18 @@
     <form class="container" method="post" action="/post/{{post.id}},{{post.elementRadio}}/review" id="review">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Nombre" id="review_name" name="name" required>
+          <input type="text" class="form-control" placeholder="Nombre" id="review_name" name="name">
         </div>
         <div class="col">
-          <input type="number" class="form-control" placeholder="Valoracion 0-10" id="review_rating" name="rating" min="0" max="10" required>
+          <input type="number" class="form-control" placeholder="Valoracion 0-10" id="review_rating" name="rating">
         </div>
         <div style="height: 5px;"></div>
       </div>
       <div class="row" id="review_opinion">
-        <input type="text" class="form-control" placeholder="Opinión" id="review_name" name="review" required>
+        <input type="text" class="form-control" placeholder="Opinión" id="review_name" name="review">
       </div>
       <div class="row"></div>
-      <input type="submit" class="btn btn-danger" id="review_button" value="Enviar" required></input>
+      <input type="submit" class="btn btn-danger" id="review_button" value="Enviar"></input>
     </form>
   </div>
 
