@@ -11,6 +11,9 @@ router.get('/', (_req, res) => {
     res.render('index', { sudaderas, camisetas, gorros });
 });
 
+router.get('/new', (_req, res) => {
+    res.render('new_post');
+});
 
 router.post('/post/new', (req, res) => {
     let { nombre, descripcion, precio, elementRadio, img } = req.body;
@@ -22,6 +25,26 @@ router.post('/post/new', (req, res) => {
     res.render('saved_post', {message: 'Producto guardado con éxito'});
     }
 });
+
+
+router.post('/post/edit/:id,:elementRadio', (req, res) => {
+    let {nombre, descripcion, precio, img } = req.body;
+    let id = req.params.id;
+    let elementRadio = req.params.elementRadio;
+    if (!nombre || !descripcion || !precio || !elementRadio || !img) {
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+    }else if(precio < 0 || precio > 300){res.render('saved_post', { message: 'El precio debe estar entre 0 y 300'});}
+    else{
+    boardService.editPost({id, elementRadio, nombre, descripcion, precio, img });
+    res.render('saved_post', {message: 'Producto editado con éxito'});
+    }
+});
+
+router.get('/post/edition/:id,:elementRadio', (req, res) => {
+    let post = boardService.getPost(req.params.elementRadio, req.params.id);
+    res.render('new_post', { post });
+});
+
 
 
 router.get('/post/:id,:elementRadio', (req, res) => {

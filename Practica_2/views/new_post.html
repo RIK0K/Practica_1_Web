@@ -54,31 +54,33 @@
 
 
 	<!-- FORMULARIO NUEVO PRODUCTO -->
-	<form id="elementForm" action="post/new" method="post">
+	<form id="elementForm" action= {{#post}}"/post/edit/{{post.id}},{{post.elementRadio}}"{{/post}}{{^post}}"post/new"{{/post}} method="post">
 		<!-- Campo de Título -->
 		<label for="nombre">Título:</label>
-		<input type="text" name="nombre"><br>
+		<input type="text" name="nombre" value={{post.nombre}}><br>
 		<!-- Fin Campo de Título -->
 
 
 		<!-- Campo de Descripción -->
 		<label for="descripcion">Descripción:</label>
-		<textarea id="descripcion" name="descripcion" rows="4"></textarea><br>
+		<textarea id="descripcion" name="descripcion" rows="4" >{{post.descripcion}}</textarea><br>
 		<!-- Campo de Descripción -->
 
 
 		<!-- Campo de Imagen -->
 		<label for="imagen">Imagen:</label>
-		<input type="img" placeholder="URL de la imagen deseada" id="imagen" name="img"><br>
+		<input type="img" placeholder="URL de la imagen deseada" id="imagen" name="img" value={{post.img}}><br>
 		<!-- Fin Campo de Imagen -->
 
 
 		<!-- Campo de Precio -->
 		<label for="precio">Precio:</label>
-		<input type="number" id="precio" name="precio" />
+		<input type="number" id="precio" name="precio" value={{post.precio}}>
 		<!-- Fin Campo de Precio -->
 
-
+		{{#post}}
+		{{/post}}
+		{{^post}}
 		<!-- Campo Radio con 3 opciones -->
 		<label>Tipo prenda:</label>
 		<input type="radio" id="elementRadio" name="elementRadio" value="camisetas">
@@ -90,6 +92,7 @@
 		<input type="radio" id="elementRadio" name="elementRadio" value="gorros">
 		<label for="elementRadio">gorra</label><br>
 		<!-- Fin Campo Radio con 3 opciones -->
+		{{/post}}
 
 
 		

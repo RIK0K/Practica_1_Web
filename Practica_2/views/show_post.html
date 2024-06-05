@@ -49,8 +49,7 @@
         <h1 id="prod_title">
           <b> {{post.nombre}}</b>
         </h1>
-        <p id="prod_date">19 Nov 2023</p>
-        <p id="precio"><b>{{post.precio}}</b></p>
+        <p id="precio"><b>{{post.precio}} €</b></p>
         <div class="cont">
           <div class="row">
             <div class="col">
@@ -114,8 +113,9 @@
     <a href="/post/{{post.id}}/delete?elementRadio={{post.elementRadio}}">
       <button type="button" class="btn btn-danger" id="review_button">Borrar producto</button>
     </a>
-
-    <button type="button" class="btn btn-danger" id="review_button">Editar producto</button>
+    <a href="/post/edition/{{post.id}},{{post.elementRadio}}">
+      <button type="button" class="btn btn-danger" id="review_button">Editar producto</button>
+    </a>
 
     <a href="/"><button type="button" class="btn btn-danger" id="review_button">Mostrar todos los productos</button></a>
   </div>
