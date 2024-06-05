@@ -21,7 +21,7 @@ router.post('/post/new', (req, res) => {
 
 router.get('/post/:id,:elementRadio', (req, res) => {
     let post = boardService.getPost(req.params.elementRadio, req.params.id);
-    res.render('show_post', { post });
+    res.render('show_post', { post, reviews: reviews.get(req.params.id)});
 });
 
 
@@ -56,24 +56,29 @@ router.get('/', (req, res) => {
 // Arreglo para almacenar reseñas
 let reviews = new Map();
 
-// Ruta para manejar la solicitud POST a '/:review'
-router.post('/post/:id,:elementRadio', (req, res) => {
+
+router.post('/post/:id,:elementRadio/review', (req, res) => {
     // Agregar la nueva reseña al arreglo
     if (!req.body.name || !req.body.rating || !req.body.review) {
         // Renderizar la vista 'Producto' con un mensaje de error si faltan campos
-        res.render('show_post', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews });
+        res.render('show_post', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews.get(req.params.id) });
         return;
     } else {
-        reviews.set(req.params.id, {
+        // Si ya existen reseñas para este producto, las obtenemos
+        let productReviews = reviews.get(req.params.id) || [];
+        // Agregamos la nueva reseña al arreglo de reseñas del producto
+        productReviews.push({
             name: req.body.name,
             rating: req.body.rating,
             review: req.body.review
         });
+        // Guardamos las reseñas actualizadas en el mapa
+        reviews.set(req.params.id, productReviews);
     }
+    let post = boardService.getPost(req.params.elementRadio, req.params.id);
 
-
-    // Renderizar la vista 'Producto' con el arreglo de reseñas actualizado
-    res.render('show_post', { reviews: req.params.id });
+    // redirigir la vista 'Producto' con el arreglo de reseñas actualizado
+    res.redirect(`/post/${req.params.id},${req.params.elementRadio}`);
 });
 
 // Exportar el enrutador para su uso en otras partes de la aplicación
