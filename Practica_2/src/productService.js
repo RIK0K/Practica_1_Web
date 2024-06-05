@@ -51,6 +51,12 @@ export const getPost = (elementRadio, id) => {
     }
 }
 
+export const addReview = (id, review, reviews) => {
+    let productReviews = reviews.get(id) || [];
+    productReviews.push(review);
+    reviews.set(id, productReviews);
+    return reviews;
+}
 
 // Ejemplos de uso: se añaden varios posts a las categorías 'sudaderas', 'camisetas' y 'gorros'.
 addPost("sudaderas", { elementRadio: 'sudaderas', nombre: "sudadera1", precio: 20, descripcion: "una sudadera muy bonita y caliente para el invierno. Se recomienda comprar una talla más de la que se suele usaar.", img: "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/293a76d0f5e97b6853ee64e6af02875d.jpg?imageView2/2/w/800/q/70" });
