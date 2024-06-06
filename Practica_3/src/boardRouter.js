@@ -17,14 +17,10 @@ router.get('/new', (_req, res) => {
 
 router.post('/post/new', (req, res) => {
     let { nombre, descripcion, precio, elementRadio, img } = req.body;
-    if (!nombre || !descripcion || !precio || !elementRadio || !img) {
-        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
-    }else if(precio < 0 || precio > 300){res.render('saved_post', { message: 'El precio debe estar entre 0 y 300'});}
-    else{
     productService.addPost(elementRadio, { elementRadio, nombre, descripcion, precio, img });
     res.render('saved_post', {message: 'Producto guardado con éxito'});
     }
-});
+);
 
 
 router.post('/post/edit/:id,:elementRadio', (req, res) => {
