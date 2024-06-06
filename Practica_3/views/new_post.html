@@ -1,0 +1,151 @@
+<html>
+
+<head>
+	<title>New Product</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="/Estilo_Fenix_Shop.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css? family=Roboto" rel="stylesheet" type="text/css">
+  <script src="./boardRouter.js"></script>
+  <script src="/functions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+  
+</head>
+
+
+<body>
+	<!-- BANNER SUPERIOR-->
+	<div class="banner">
+		<!-- Imagen logo con link a inicio -->
+		<div class="itemBanner a">
+			<a href="/">
+			  <img src="/Logo_final.png" class="image-banner">
+			</a>
+		  </div>
+
+		<!-- Nombre de la tineda -->
+		<div class="itemBanner b title_style">
+			<p>Fenix Shop</p>
+		</div>
+
+		<!-- Boton tema oscuro -->
+		<div class="itemBanner c">
+            <button class="btn rounded-fill" onclick="cambiarTema()"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+        </div>
+
+	</div>
+	<!-- FIN BANNER SUPERIOR-->
+
+
+
+
+
+	<!-- Banner añadir producto -->
+	<p id="space-small"></p>
+	<div class="banner black-border"></div>
+	<div class="banner d">
+		<div>
+			<h3>AÑADIR PRODUCTO</h3>
+		</div>
+	</div>
+	<div class="banner black-border"></div>
+	<p id="space-small"></p>
+	<!-- Fin banner añadir producto -->
+
+
+
+
+
+	<!-- FORMULARIO NUEVO PRODUCTO -->
+	<form id="elementForm" action= {{#post}}"/post/edit/{{post.id}},{{post.elementRadio}}"{{/post}}{{^post}}"post/new"{{/post}} method="post">
+		<!-- Campo de Título -->
+		<label for="nombre">Título:</label>
+		<input type="text" name="nombre" value={{post.nombre}}><br>
+		<!-- Fin Campo de Título -->
+
+
+		<!-- Campo de Descripción -->
+		<label for="descripcion">Descripción:</label>
+		<textarea id="descripcion" name="descripcion" rows="4" >{{post.descripcion}}</textarea><br>
+		<!-- Campo de Descripción -->
+
+
+		<!-- Campo de Imagen -->
+		<label for="imagen">Imagen:</label>
+		<input type="img" placeholder="URL de la imagen deseada" id="imagen" name="img" value={{post.img}}><br>
+		<!-- Fin Campo de Imagen -->
+
+
+		<!-- Campo de Precio -->
+		<label for="precio">Precio:</label>
+		<input type="number" id="precio" name="precio" value={{post.precio}}>
+		<!-- Fin Campo de Precio -->
+
+		{{#post}}
+		{{/post}}
+		{{^post}}
+		<!-- Campo Radio con 3 opciones -->
+		<label>Tipo prenda:</label>
+		<input type="radio" id="elementRadio" name="elementRadio" value="camisetas">
+		<label for="elementRadio">camiseta</label>
+
+		<input type="radio" id="elementRadio" name="elementRadio" value="sudaderas">
+		<label for="elementRadio">sudadera</label>
+
+		<input type="radio" id="elementRadio" name="elementRadio" value="gorros">
+		<label for="elementRadio">gorra</label><br>
+		<!-- Fin Campo Radio con 3 opciones -->
+		{{/post}}
+
+
+		
+		<!-- Botones de Guardar y Cancelar -->
+		<div class="bot-can-guar">
+			<button class="btn btn-danger" type="submit" value="Save">Guardar</button>
+			<a href="/">
+				<button class="btn btn-danger" type="button">Cancelar</button>
+			</a>
+		</div>
+		<!-- Fin Botones de Guardar y Cancelar -->
+		<!-- FORMULARIO NUEVO PRODUCTO -->
+	</form>
+
+
+
+	<!-- PIE DE PÁGINA -->
+	<footer>
+		<p id="space-big"></p>
+		<div class="banner">
+			<div class="footer-banner">
+				<img src="Logo_final.png" class="image-banner">
+				<p><strong>CONTACTO: <a
+							href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&theme=glif">fenix.clothing@gmail.com</a>
+					</strong></p>
+				<strong>NUESTRAS REDES</strong>
+				<p>
+					<a href="https://www.instagram.com/" class="btn">
+						<i class="bi bi-instagram"> Instagram</i>
+					</a>
+					<a href="twitter.com" class="btn">
+						<i class="bi bi-twitter-x"> Twitter X</i>
+					</a>
+					<a href="https://www.tiktok.com/es/" class="btn">
+						<i class="bi bi-tiktok"> TikTok</i>
+					</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- FIN PIE DE PÁGINA -->
+	<script>ejecutarTema()</script>
+</body>
+</html>

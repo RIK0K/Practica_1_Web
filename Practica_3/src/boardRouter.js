@@ -1,27 +1,55 @@
 import express from 'express';
-import * as boardService from './boardService.js';
+import * as productService from './productService.js';
 const router = express.Router();
 
 
 router.get('/', (_req, res) => {
-    const sudaderas = boardService.getPosts('sudaderas');
-    const camisetas = boardService.getPosts('camisetas');
-    const gorros = boardService.getPosts('gorros');
+    const sudaderas = productService.getPosts('sudaderas');
+    const camisetas = productService.getPosts('camisetas');
+    const gorros = productService.getPosts('gorros');
 
     res.render('index', { sudaderas, camisetas, gorros });
 });
 
+router.get('/new', (_req, res) => {
+    res.render('new_post');
+});
 
 router.post('/post/new', (req, res) => {
-    let { nombre, descripcion, precio, elementRadio, imagen } = req.body;
-    boardService.addPost(elementRadio, { elementRadio, nombre, descripcion, precio, imagen });
-    res.render('saved_post');
+    let { nombre, descripcion, precio, elementRadio, img } = req.body;
+    if (!nombre || !descripcion || !precio || !elementRadio || !img) {
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+    }else if(precio < 0 || precio > 300){res.render('saved_post', { message: 'El precio debe estar entre 0 y 300'});}
+    else{
+    productService.addPost(elementRadio, { elementRadio, nombre, descripcion, precio, img });
+    res.render('saved_post', {message: 'Producto guardado con éxito'});
+    }
 });
 
 
+router.post('/post/edit/:id,:elementRadio', (req, res) => {
+    let {nombre, descripcion, precio, img } = req.body;
+    let id = req.params.id;
+    let elementRadio = req.params.elementRadio;
+    if (!nombre || !descripcion || !precio || !elementRadio || !img) {
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+    }else if(precio < 0 || precio > 300){res.render('saved_post', { message: 'El precio debe estar entre 0 y 300'});}
+    else{
+    productService.editPost({id, elementRadio, nombre, descripcion, precio, img });
+    res.render('saved_post', {message: 'Producto editado con éxito'});
+    }
+});
+
+router.get('/post/edition/:id,:elementRadio', (req, res) => {
+    let post = productService.getPost(req.params.elementRadio, req.params.id);
+    res.render('new_post', { post });
+});
+
+
+
 router.get('/post/:id,:elementRadio', (req, res) => {
-    let post = boardService.getPost(req.params.elementRadio, req.params.id);
-    res.render('show_post', { post });
+    let post = productService.getPost(req.params.elementRadio, req.params.id);
+    res.render('show_post', { post, reviews: reviews.get(req.params.id)});
 });
 
 
@@ -33,7 +61,7 @@ router.get('/post/:id/delete', (req, res) => {
     const postId = req.params.id;
 
     if (elementRadio) {
-        boardService.deletePost(elementRadio, postId);
+        productService.deletePost(elementRadio, postId);
         res.render('deleted_post');
     } else {
         console.error('La categoría no se proporcionó en la URL.');
@@ -56,25 +84,54 @@ router.get('/', (req, res) => {
 // Arreglo para almacenar reseñas
 let reviews = new Map();
 
-// Ruta para manejar la solicitud POST a '/:review'
-router.post('/post/:id,:elementRadio', (req, res) => {
-    // Agregar la nueva reseña al arreglo
+
+
+router.post('/post/:id,:elementRadio/review', (req, res) => {
     if (!req.body.name || !req.body.rating || !req.body.review) {
-        // Renderizar la vista 'Producto' con un mensaje de error si faltan campos
-        res.render('show_post', { errorMessage: 'Por favor ingrese todos los campos', reviews: reviews });
+        res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+        return;
+    } else if (req.body.rating < 1 || req.body.rating > 10) {
+        res.render('saved_post', { message: 'La calificación debe estar entre 1 y 10' });
         return;
     } else {
-        reviews.set(req.params.id, {
+        let review = {
             name: req.body.name,
             rating: req.body.rating,
             review: req.body.review
-        });
+        };
+        reviews = productService.addReview(req.params.id, review, reviews);
     }
-
-
-    // Renderizar la vista 'Producto' con el arreglo de reseñas actualizado
-    res.render('show_post', { reviews: req.params.id });
+    res.redirect(`/post/${req.params.id},${req.params.elementRadio}`);
 });
+
+
+// router.post('/post/:id,:elementRadio/review', (req, res) => {
+//     // Agregar la nueva reseña al arreglo
+//     if (!req.body.name || !req.body.rating || !req.body.review) {
+//         res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
+//         return;
+//     } else if (req.body.rating < 1 || req.body.rating > 10) {
+//         res.render('saved_post', { message: 'La calificación debe estar entre 1 y 10' });
+//         return;
+//     } else {
+//         // Si ya existen reseñas para este producto, las obtenemos
+//         let productReviews = reviews.get(req.params.id) || [];
+//         // Agregamos la nueva reseña al arreglo de reseñas del producto
+//         productReviews.push({
+//             name: req.body.name,
+//             rating: req.body.rating,
+//             review: req.body.review
+//         });
+//         // Guardamos las reseñas actualizadas en el mapa
+//         reviews.set(req.params.id, productReviews);
+//     }
+//     let post = productService.getPost(req.params.elementRadio, req.params.id);
+
+//     // redirigir la vista 'Producto' con el arreglo de reseñas actualizado
+//     res.redirect(`/post/${req.params.id},${req.params.elementRadio}`);
+// });
+
+
 
 // Exportar el enrutador para su uso en otras partes de la aplicación
 export default router;
