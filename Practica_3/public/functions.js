@@ -37,7 +37,7 @@ async function formValidation(){
 
     const expresiones = {
         nombre: /^[A-ZÀ-ÿ0-9][a-zA-ZÀ-ÿ\s0-9]{0,99}$/,
-        imagen: /https?:\/\/[\w\-\.]+\/[\w\-\.\/]+.(jpg|jpeg|png|gif|bmp|svg)\b|data:image\/[a-zA-Z]+;base64,[\w=+\/]+|img\.brave\.[\w\-\.]+/,        precio: /^[0-9]{1,3}(?:\.[0-9]{1,2})?$/,
+        imagen: /https?:\/\/[\w\-\.]+\/[\w\-\.\/]+.(jpg|jpeg|png|gif|bmp|svg)\b|data:image\/[a-zA-Z]+;base64,[\w=+\/]+|img\.brave\.[\w\-\.]+/,
         descripcion: /^.{50,500}$/,
         precio: /^(?:[1-9][0-9]{0,2}(?:\.[0-9]{1,2})?|1\.[0-9]{1,2})$/
     }
