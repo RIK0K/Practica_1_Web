@@ -190,10 +190,16 @@
 
 
                         <!-- Grupo Descripción -->
-                        <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" name="descripcion" id="descripcion" placeholder="Descripción del producto..."
-                            rows="4"></textarea><br>
-                        <!-- Fin Grupo Descripción -->
+                        <div class="formulario__grupo" id="grupo__descripcion">
+                            <label for="descripcion">Descripción:</label>
+                            <div class="formulario__grupo-input">
+                                <textarea name="descripcion" id="descripcion" placeholder="Descripción del producto..."
+                                    rows="4"></textarea><br>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La descripcion debe contener entre 50 y 500 caracteres.</p>
+                        </div>
+                         <!-- Fin Grupo Descripción -->
 
 
                         <!-- Grupo Imagen -->
@@ -215,7 +221,7 @@
                                 <input type="number" id="precio" name="precio" placeholder="5"/>
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                            <p class="formulario__input-error">La URL es incorrecta</p>
+                            <p class="formulario__input-error">Introduzca un precio valido entre 1 y 999</p>
                         </div>
                         <!-- Fin Grupo Precio -->
 
@@ -276,5 +282,6 @@
     </footer>
     <!-- FIN PIE DE PÁGINA -->
     <script>ejecutarTema()</script>
+    <script>formValidation()</script>
 </body>
 </html>

@@ -435,6 +435,10 @@ main {
 	border: 3px solid #bb2929;
 }
 
+.formulario__input-error {
+    color: red
+}
+
 
 /* ----- -----  Mediaqueries ----- ----- */
 @media screen and (max-width: 800px) {
