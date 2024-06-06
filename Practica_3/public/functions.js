@@ -29,12 +29,14 @@ function ejecutarTema() {
 
 
 // Comprobacion de datos del formulario
-function formValidation(){
+async function formValidation(){
     const formulario = document.getElementById('formulario');
     const inputs = document.querySelectorAll('#formulario input, #formulario textarea');
 
+    
+
     const expresiones = {
-        nombre: /^[A-ZÀ-ÿ][a-zA-ZÀ-ÿ\s]{0,99}$/,
+        nombre: /^[A-ZÀ-ÿ0-9][a-zA-ZÀ-ÿ\s0-9]{0,99}$/,
         imagen: /https?:\/\/[\w\-\.]+\/[\w\-\.\/]+.(jpg|jpeg|png|gif|bmp|svg)\b|data:image\/[a-zA-Z]+;base64,[\w=+\/]+|img\.brave\.[\w\-\.]+/,        precio: /^[0-9]{1,3}(?:\.[0-9]{1,2})?$/,
         descripcion: /^.{50,500}$/,
         precio: /^(?:[1-9][0-9]{0,2}(?:\.[0-9]{1,2})?|1\.[0-9]{1,2})$/
@@ -87,7 +89,7 @@ function formValidation(){
     });
 
     formulario.addEventListener('submit', (e) => {
-        if (!(campos.nombre && campos.imagen && campos.precio && campos.descripcion)) {
+        if (!(campos.nombre && campos.imagen && campos.precio && campos.descripcion && document.getElementById('NoDisponible') === null)) {
             e.preventDefault();
     
             document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
@@ -102,4 +104,44 @@ function formValidation(){
             });
         }
     });
+}
+
+
+async function checknombreAvailability() {
+
+    let nombreInput = document.getElementById('nombre');
+
+    let nombre = nombreInput.value;
+
+    const response = await fetch(`/availablenombre?nombre=${nombre}`);
+
+    const responseObj = await response.json();
+
+    let message = responseObj.available? 
+        '<p id="Disponible">Disponible</p>':
+        '<p id="NoDisponible">No disponible</p>';
+
+    const messageDiv = document.getElementById('message');
+    messageDiv.innerHTML = message;
+
+}
+
+async function checknombreEditarAvailability() {
+
+    let nombreInput = document.getElementById('nombre');
+    let nombre = nombreInput.value;
+    let message;
+    let nombreOriginal = document.getElementById('nombreOriginal').innerText;
+    const response = await fetch(`/availablenombre?nombre=${nombre}`);
+
+    const responseObj = await response.json();
+    if (nombre === nombreOriginal) {
+        message = '<p id="Disponible">Mismo Nombre</p>';}
+    else{
+        message = responseObj.available? 
+            '<p id="Disponible">Disponible</p>':
+            '<p id="NoDisponible">No disponible</p>';
+    }
+    const messageDiv = document.getElementById('message');
+    messageDiv.innerHTML = message;
 }

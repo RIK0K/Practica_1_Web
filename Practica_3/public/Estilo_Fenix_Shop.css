@@ -439,6 +439,14 @@ main {
     color: red
 }
 
+#Disponible{
+    color: green;
+}
+
+#NoDisponible{
+    color: red;
+}
+
 
 /* ----- -----  Mediaqueries ----- ----- */
 @media screen and (max-width: 800px) {

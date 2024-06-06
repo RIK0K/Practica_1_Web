@@ -1,5 +1,6 @@
 import express from 'express';
 import * as productService from './productService.js';
+import { Nombres } from './productService.js';
 const router = express.Router();
 
 
@@ -101,33 +102,18 @@ router.post('/post/:id,:elementRadio/review', (req, res) => {
 });
 
 
-// router.post('/post/:id,:elementRadio/review', (req, res) => {
-//     // Agregar la nueva reseña al arreglo
-//     if (!req.body.name || !req.body.rating || !req.body.review) {
-//         res.render('saved_post', { message: 'Por favor ingrese todos los campos' });
-//         return;
-//     } else if (req.body.rating < 1 || req.body.rating > 10) {
-//         res.render('saved_post', { message: 'La calificación debe estar entre 1 y 10' });
-//         return;
-//     } else {
-//         // Si ya existen reseñas para este producto, las obtenemos
-//         let productReviews = reviews.get(req.params.id) || [];
-//         // Agregamos la nueva reseña al arreglo de reseñas del producto
-//         productReviews.push({
-//             name: req.body.name,
-//             rating: req.body.rating,
-//             review: req.body.review
-//         });
-//         // Guardamos las reseñas actualizadas en el mapa
-//         reviews.set(req.params.id, productReviews);
-//     }
-//     let post = productService.getPost(req.params.elementRadio, req.params.id);
+router.get('/availablenombre', (req, res) => {
 
-//     // redirigir la vista 'Producto' con el arreglo de reseñas actualizado
-//     res.redirect(`/post/${req.params.id},${req.params.elementRadio}`);
-// });
+    let nombre = req.query.nombre;
 
+    let availablenombre = Nombres.indexOf(nombre) === -1;
 
+    let response = {
+        available: availablenombre
+    }
+
+    res.json(response);
+})
 
 // Exportar el enrutador para su uso en otras partes de la aplicación
 export default router;
