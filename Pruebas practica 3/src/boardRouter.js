@@ -4,13 +4,19 @@ const router = express.Router();
 
 
 router.get('/', (_req, res) => {
-    const sudaderas = boardService.getPosts('sudaderas');
-    const camisetas = boardService.getPosts('camisetas');
-    const gorros = boardService.getPosts('gorros');
+    const type = _req.query.type;
+    let products = {};
 
-    res.render('index', { sudaderas, camisetas, gorros });
+    if (!type || type === 'todos') {
+        products.sudaderas = productService.getPosts('sudaderas');
+        products.camisetas = productService.getPosts('camisetas');
+        products.gorros = productService.getPosts('gorros');
+    } else {
+        products[type] = productService.getPosts(type);
+    }
+
+    res.render('index', products);
 });
-
 
 router.post('/post/new', (req, res) => {
     let { nombre, descripcion, precio, elementRadio, imagen } = req.body;
@@ -25,7 +31,13 @@ router.get('/post/:id,:elementRadio', (req, res) => {
 });
 
 
-
+// Asumiendo que productService.getPosts ahora acepta un segundo argumento que especifica cuántos posts saltar
+router.get('/loadMore', (req, res) => {
+    const type = req.query.type;
+    const skip = Number(req.query.skip) || 0;
+    const products = productService.getPosts(type, skip);
+    res.json(products);
+});
 
 // borrado de elementos
 router.get('/post/:id/delete', (req, res) => {
