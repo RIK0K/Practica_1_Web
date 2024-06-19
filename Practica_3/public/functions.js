@@ -145,3 +145,102 @@ async function checknombreEditarAvailability() {
     const messageDiv = document.getElementById('message');
     messageDiv.innerHTML = message;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.load-more').forEach(button => {
+        button.addEventListener('click', function () {
+            const type = this.dataset.type;
+            const skip = document.querySelectorAll(`.${type}-product`).length;
+
+            fetch(`/loadMore?elementRadio=${type}&skip=${skip}&limit=3`)
+                .then(response => response.json())
+                .then(products => {
+                    const container = document.querySelector(`.org-product.${type}`);
+                    products.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.innerHTML = `
+                            <a href="post/${product.id},${type}">
+                                <img class="product-photo" src="${product.img}" alt="${product.nombre}">
+                            </a>
+                        `;
+                        productDiv.classList.add(`${type}-product`);
+                        container.appendChild(productDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading more products:', error));
+        });
+    });
+});
+
+
+// Contadores de productos mostrados
+let productCounts = {
+    camisetas: 0,
+    sudaderas: 0,
+    gorros: 0
+};
+
+function loadInitialProduct() {
+    const productContainers = document.querySelectorAll('.product-container');
+    
+    productContainers.forEach(container => {
+        const type = container.getAttribute('data-type');
+        fetch(`/loadMore?elementRadio=${type}&skip=${productCounts[type]}`)
+            .then(response => response.json())
+            .then(products => {
+                products.forEach(product => {
+                    const productElement = document.createElement('a');
+                    productElement.innerHTML = `
+                        <a href="post/${product.id},${type}">
+                            <img class="product-photo" src="${product.img}">
+                        </a>
+                    `;
+                    container.appendChild(productElement);
+                });
+                productCounts[type] += products.length; // Actualizar el contador
+            });
+    });
+}
+
+function loadMoreProducts(type) {
+    const container = document.querySelector(`.product-container[data-type="${type}"]`);
+    fetch(`/loadMore?elementRadio=${type}&skip=${productCounts[type]}`)
+        .then(response => response.json())
+        .then(products => {
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.innerHTML = `
+                    <a href="post/${product.id},${type}">
+                        <img class="product-photo" src="${product.img}">
+                    </a>
+                `;
+                container.appendChild(productElement);
+            });
+            productCounts[type] += products.length; // Actualizar el contador
+        });
+}
+
+// Asignar eventos a los botones de "Cargar más"
+document.querySelectorAll('.load-more').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const type = event.target.getAttribute('data-type');
+        loadMoreProducts(type);
+    });
+});
+
+// Cargar los productos iniciales cuando la página se carga
+loadInitialProduct();

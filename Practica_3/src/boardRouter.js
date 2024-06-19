@@ -60,11 +60,11 @@ router.get('/post/:id,:elementRadio', (req, res) => {
 
 // Asumiendo que productService.getPosts ahora acepta un segundo argumento que especifica cuántos posts saltar
 router.get('/loadMore', (req, res) => {
-    const type = req.query.type;
-    const skip = Number(req.query.skip) || 0;
-    const products = productService.getPosts(type, skip);
+    const { elementRadio, skip = 0, limit = 3 } = req.query;
+    const products = productService.getPosts(elementRadio).slice(parseInt(skip), parseInt(skip) + parseInt(limit));
     res.json(products);
 });
+
 
 // borrado de elementos
 router.get('/post/:id/delete', (req, res) => {
