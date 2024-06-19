@@ -48,37 +48,38 @@
     </div>
     <!-- FIN BANNER SUPERIOR -->
 
-<!-- FILTRO ELEMENTOS -->
-<form action="/" method="get">
-    <label for="type">Tipo de producto:</label>
-    <select id="type" name="type">
-        <option value="">Todos</option>
-        <option value="sudaderas">Sudaderas</option>
-        <option value="camisetas">Camisetas</option>
-        <option value="gorros">Gorros</option>
-    </select>
-    <input type="submit" value="Filtrar">
-</form>
+    <!-- FILTRO ELEMENTOS -->
+
+    <div class="bot-can-guar">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" onclick="filterCamiseta()">Camisetas</button>
+            <button type="button" class="btn btn-secondary" onclick="filterSudadera()">Sudaderas</button>
+            <button type="button" class="btn btn-secondary" onclick="filterGorro()">Gorros</button>
+            <button type="button" class="btn btn-secondary" onclick="noFilter()">Todo</button>
+        </div>
+    </div>
 
     <!-- APARTADO CAMISETAS -->
-    <!-- Banner camisetas -->
-    <p id="space-small"></p>
-    <div class="banner black-border"></div>
-    <div class="banner d">
-        <ul>
-            <h3>Camisetas</h3>
-        </ul>
-    </div>
-    <div class="banner black-border"></div>
-    <!-- Fin banner camisetas -->
+    <div id="filtroCamisetas">
+        <!-- Banner camisetas -->
+        <p id="space-small"></p>
+        <div class="banner black-border"></div>
+        <div class="banner d">
+            <ul>
+                <h3>Camisetas</h3>
+            </ul>
+        </div>
+        <div class="banner black-border"></div>
+        <!-- Fin banner camisetas -->
 
 
-    <div class="org-product camisetas">
-        <div class="product-container" data-type="camisetas"></div>
+        <div class="org-product camisetas">
+            <div class="product-container" data-type="camisetas"></div>
 
-    </div>
-    <div class="bot-can-guar">
-        <button class="load-more" data-type="camisetas">Cargar más</button>
+        </div>
+        <div class="bot-can-guar">
+            <button class="load-more" data-type="camisetas">Cargar más</button>
+        </div>
     </div>
     <!-- FIN APARTADO CAMISETAS -->
 
@@ -90,21 +91,23 @@
     <!-- APARTADO SUDADERAS -->
     <!-- Banner sudaderas -->
     <p id="space-small"></p>
-    <div class="banner black-border"></div>
-    <div class="banner d">
-        <div>
-            <h3>Sudaderas</h3>
+    <div id="filtroSudaderas">
+        <div class="banner black-border"></div>
+        <div class="banner d">
+            <div>
+                <h3>Sudaderas</h3>
+            </div>
         </div>
-    </div>
-    <div class="banner black-border"></div>
-    <!-- Fin banner sudaderas -->
+        <div class="banner black-border"></div>
+        <!-- Fin banner sudaderas -->
 
-    <div class="org-product sudaderas">
-        <div class="product-container" data-type="sudaderas"></div>
+        <div class="org-product sudaderas">
+            <div class="product-container" data-type="sudaderas"></div>
 
-    </div>
-    <div class="bot-can-guar">
-        <button class="load-more" data-type="sudaderas">Cargar más</button>
+        </div>
+        <div class="bot-can-guar">
+            <button class="load-more" data-type="sudaderas">Cargar más</button>
+        </div>
     </div>
     <!-- FIN APARTADO SUDADERAS -->
 
@@ -113,24 +116,25 @@
 
     <!-- APARTADO GORROS -->
     <!-- Banner gorros -->
-    <p id="space-small"></p>
-    <div class="banner black-border"></div>
-    <div class="banner d">
-        <div>
-            <h3>Gorros</h3>
+    <div id="filtroGorros">
+        <p id="space-small"></p>
+        <div class="banner black-border"></div>
+        <div class="banner d">
+            <div>
+                <h3>Gorros</h3>
+            </div>
         </div>
-    </div>
-    <div class="banner black-border"></div>
-    <!-- Fin banner gorros -->
+        <div class="banner black-border"></div>
+        <!-- Fin banner gorros -->
 
         <div class="org-product gorros">
             <div class="product-container" data-type="gorros"></div>
-    
+
         </div>
         <div class="bot-can-guar">
             <button class="load-more" data-type="gorros">Cargar más</button>
         </div>
-
+    </div>
     <!-- FIN APARTADO GORROS -->
 
 
@@ -167,11 +171,12 @@
                         <div class="formulario__grupo" id="grupo__nombre">
                             <label for="nombre">Nombre del producto:</label>
                             <div class="formulario__grupo-input">
-                                <input oninput='checknombreAvailability()' type="text" name="nombre" id="nombre" placeholder="Camiseta azul"><br>
+                                <input oninput='checknombreAvailability()' type="text" name="nombre" id="nombre"
+                                    placeholder="Camiseta azul"><br>
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El nombre debe empezar por mayuscula</p>
-                            <div id = "message"></div>
+                            <div id="message"></div>
                         </div>
                         <!-- Fin Grupo nombre -->
 

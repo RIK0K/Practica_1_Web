@@ -249,32 +249,32 @@ h1 {
 /* ############################### */
 /* ############################### */
 body[data-bs-theme="dark"] .banner {
-    background-color: #6d4848; /* Cambia este color al que prefieras */
-    color: #cdcdcd; /* Cambia este color al que prefieras para el texto en el banner */
+    background-color: #6d4848; 
+    color: #cdcdcd; 
 }
 
 body[data-bs-theme="dark"] .black-border {
-    background-color: #cdcdcd; /* Cambia este color al que prefieras */
+    background-color: #cdcdcd; 
 }
 
 body[data-bs-theme="dark"] .itemBanner {
-    background-color: #6d4848; /* Cambia este color al que prefieras */
-    color: #cdcdcd; /* Cambia este color al que prefieras para el texto en el banner */
+    background-color: #6d4848; 
+    color: #cdcdcd; 
 }
 
 body[data-bs-theme="dark"] .footer-banner {
-    background-color: #360f0f; /* Cambia este color al que prefieras */
-    color: #929292; /* Cambia este color al que prefieras para el texto en el banner */
+    background-color: #360f0f; 
+    color: #929292; 
 }
 
 body[data-bs-theme="dark"] .title_style {
-    color: #cdcdcd; /* Cambia este color al que prefieras para el título en el banner */
+    color: #cdcdcd; 
 }
 
 body[data-bs-theme="dark"] #dl-icon,
 body[data-bs-theme="light"] #dl-icon {
-    font-size: 20px; /* Ajusta el tamaño del icono al valor que prefieras */
-    /* También puedes ajustar otros estilos según sea necesario */
+    font-size: 20px; 
+   
 }
 
 

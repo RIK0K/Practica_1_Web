@@ -244,3 +244,64 @@ document.querySelectorAll('.load-more').forEach(button => {
 
 // Cargar los productos iniciales cuando la página se carga
 loadInitialProduct();
+
+function filterSudadera(){
+    var x = document.getElementById("filtroCamisetas");
+    var y = document.getElementById("filtroGorros");
+    var z = document.getElementById("filtroSudaderas");
+
+    if (x.style.display === "none" && y.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "block";
+    }else{
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+    }
+}
+
+function filterCamiseta(){
+    var x = document.getElementById("filtroSudaderas");
+    var y = document.getElementById("filtroGorros");
+    var z = document.getElementById("filtroCamisetas");
+
+
+    if (x.style.display === "none" && y.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "block";
+    }else{
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+    }
+}
+
+function filterGorro(){
+    var x = document.getElementById("filtroCamisetas");
+    var y = document.getElementById("filtroSudaderas");
+    var z = document.getElementById("filtroGorros");
+
+    if (x.style.display === "none" && y.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "block";
+
+    }else{
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+    }
+}
+
+function noFilter(){
+    var x = document.getElementById("filtroCamisetas");
+    var y = document.getElementById("filtroSudaderas");
+    var z = document.getElementById("filtroGorros");
+
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "block";
+
+}
